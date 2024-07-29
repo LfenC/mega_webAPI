@@ -1,4 +1,4 @@
-# EntertainmentHub - Tercer Sprint
+# EntertainmentHub - Cuarto Sprint
 Proyecto hecho por Lizeth Consuelo Bañuelos Ruelas.
 
 
