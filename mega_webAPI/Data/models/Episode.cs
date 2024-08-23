@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace mega_webAPI.models
+
+namespace mega_webAPI.Data.models
 {
     public class Episode
     {

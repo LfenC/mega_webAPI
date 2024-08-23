@@ -1,7 +1,7 @@
 ﻿using mega_webAPI.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using mega_webAPI.models;
+using mega_webAPI.Data.models;
 
 namespace mega_webAPI.Controllers
 {

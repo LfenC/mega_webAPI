@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using mega_webAPI.Data.models;
 
-namespace mega_webAPI.models
+namespace mega_webAPI.Data.models
 {
     public class User
     {

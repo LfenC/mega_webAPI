@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using mega_webAPI.Data.models;
 
-namespace mega_webAPI.models
+namespace mega_webAPI.Data.models
 {
     public class MovieCategory
     {
         [ForeignKey("Movie")]
-        public int MovieId { get; set; }
+        public int Id { get; set; }
         public Movie Movie { get; set; }
 
         [ForeignKey("Category")]

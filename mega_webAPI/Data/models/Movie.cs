@@ -1,15 +1,15 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Security.Principal;
+using mega_webAPI.Data.models;
+using System.Text.Json.Serialization;
 
-namespace mega_webAPI.models
+namespace mega_webAPI.Data.models
 {
     public class Movie
     {
         [Key]
         [Column("movie_id")]
-        public int MovieId { get; set; }
+        public int Id { get; set; }
 
         [Column("title")]
         public string Title { get; set; }
@@ -21,7 +21,7 @@ namespace mega_webAPI.models
         public DateTime ReleaseDate { get; set; }
 
         [Column("rating")]
-        public float Rating { get; set; }
+        public double Rating { get; set; }
 
         [Column("votes")]
         public int Votes { get; set; }
@@ -34,8 +34,12 @@ namespace mega_webAPI.models
 
         [Column("added_date")]
         public DateTime AddedDate { get; set; } = DateTime.Now;
+    
+        public ICollection<MovieCategory> MovieCategories { get; set; } = new List<MovieCategory>();
+       // public ICollection<MovieActor> MovieActors { get; set; }
+     
+        public ICollection<MovieGenre> Genres { get; set; } = new List<MovieGenre>();
 
-        public ICollection<MovieCategory> MovieCategories { get; set; }
 
     }
 }

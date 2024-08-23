@@ -1,13 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using mega_webAPI.Data.models;
+using System.Text.Json.Serialization;
 
-namespace mega_webAPI.models
+namespace mega_webAPI.Data.models
 {
     public class Tvshow
     {
         [Key]
         [Column("tvshow_id")]
-        public int TvShowId { get; set; }
+        public int Id { get; set; }
 
         [Column("title")]
         public string Title { get; set; }
@@ -19,7 +21,7 @@ namespace mega_webAPI.models
         public DateTime ReleaseDate { get; set; }
 
         [Column("rating")]
-        public float Rating { get; set; }
+        public double Rating { get; set; }
 
         [Column("votes")]
         public int Votes { get; set; }
@@ -33,8 +35,13 @@ namespace mega_webAPI.models
         [Column("added_date")]
         public DateTime AddedDate { get; set; } = DateTime.Now;
 
+        [JsonIgnore]
         public ICollection<Episode> Episodes { get; set; }
-        public ICollection<TvShowCategory> TvShowCategories { get; set; }
+     
+        public ICollection<TvShowCategory> TvShowCategories { get; set; } = new List<TvShowCategory>();
+
+        public ICollection<TvShowGenre> Genres { get; set; } = new List<TvShowGenre>();
+
 
     }
 }

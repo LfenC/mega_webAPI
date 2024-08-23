@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+using mega_webAPI.Data.models;
 
-namespace mega_webAPI.models
+namespace mega_webAPI.Data.models
 
 {
     public class Category
@@ -13,7 +15,10 @@ namespace mega_webAPI.models
        [Column("name")]
         public string Name { get; set; }
 
+        //relation many to many with table Category
+        
         public ICollection<MovieCategory> MovieCategories { get; set; }
+     
         public ICollection<TvShowCategory> TvShowCategories { get; set; }
 
     }
