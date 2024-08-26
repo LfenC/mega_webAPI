@@ -1,0 +1,16 @@
+services:
+  mega_webapi:
+    image: ${DOCKER_REGISTRY-}megawebapi
+    build:
+      context: .
+      dockerfile: mega_webAPI/Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - webnet
+
+networks:
+  webnet:

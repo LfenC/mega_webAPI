@@ -1,0 +1,25 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mega-webapi-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mega-webapi
+  template:
+    metadata:
+      labels:
+        app: mega-webapi
+    spec:
+      containers:
+        - name: mega-webapi
+          image: lizbr/megawebapi:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ConnectionStrings__DefaultConnection
+              valueFrom:
+                secretKeyRef:
+                    name: megawebapi-secrets
+                    key:  ConnectionStrings__DefaultConnection

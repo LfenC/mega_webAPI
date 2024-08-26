@@ -29,14 +29,14 @@ namespace mega_webAPI.Data.Repositories
         //GET movies by id api/Movies/id
         public async Task<Movie?> GetMovieById(int id)
         {
-            {
+            
                 return await _context.Movies
                     .Include(m => m.Genres)
                     .ThenInclude(mg => mg.Genre)
                     .Include(m => m.MovieCategories)
                     .ThenInclude(mc => mc.Category)
                     .FirstOrDefaultAsync(m => m.Id == id);
-            }
+            
 
         }
 
@@ -45,7 +45,17 @@ namespace mega_webAPI.Data.Repositories
             return await _context.Genres.ToListAsync();
         }
 
- 
+        public async Task<IEnumerable<Movie>> GetMoviesByGenreIdAsync(int id)
+        {
+            return await _context.Movies
+             .Include(m => m.Genres)
+            .ThenInclude(mg => mg.Genre)
+            .Include(m => m.MovieCategories)
+            .ThenInclude(mc => mc.Category)
+            .Distinct()
+            .ToListAsync();
+
+        }
         public async Task<Movie> AddMovie(Movie movie)
         {
             if (movie.Genres != null && movie.Genres.Any())

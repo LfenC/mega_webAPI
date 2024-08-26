@@ -17,6 +17,8 @@ namespace mega_webAPI.Data.interfaces
         Task<IEnumerable<Movie>> GetTopRatedMoviesAsync();
         Task<IEnumerable<Movie>> GetFeaturedMoviesAsync();
         Task<IEnumerable<Genre>> GetGenresAsync();
+        Task<IEnumerable<Movie>> GetMoviesByGenreIdAsync(int id);
+
         Task<string> GetMovieVideos(int id);
 
     }

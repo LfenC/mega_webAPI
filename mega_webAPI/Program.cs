@@ -18,7 +18,8 @@ builder.Services.AddCors(options =>
         });
 });
 //create variable for conexion
-var connectionString = builder.Configuration.GetConnectionString("Connection");
+var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ??
+                        builder.Configuration.GetConnectionString("Connection");
 
 //register service for conexion
 builder.Services.AddDbContext<AppDbContext>(
@@ -34,17 +35,24 @@ builder.Services.AddScoped<ITvShow, TvShowRepository>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.WebHost.UseKestrel(options =>
+{
+    options.ListenAnyIP(8080); // Esto configura Kestrel para escuchar en todas las interfaces de red en el puerto 80
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"); // Ruta del endpoint Swagger JSON
+        c.RoutePrefix = string.Empty; // Swagger UI en la raíz
+    });
+//}
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseCors("AllowAngularApp");
 

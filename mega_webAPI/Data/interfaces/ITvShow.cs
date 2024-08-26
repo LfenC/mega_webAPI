@@ -15,6 +15,8 @@ namespace mega_webAPI.Data.interfaces
         Task<IEnumerable<Tvshow>> GetPopularTvShowsAsync();
         Task<IEnumerable<Tvshow>> GetUpcomingTvShowsAsync();
         Task<IEnumerable<Tvshow>> GetTopRatedTvShowsAsync();
+        Task<IEnumerable<Genre>> GetGenresAsync();
+        Task<string> GetTvShowVideos(int id);
 
     }
 }

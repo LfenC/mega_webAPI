@@ -46,7 +46,10 @@ namespace mega_webAPI.Data.Repositories
             return tvshow;
         }
 
-
+        public async Task<IEnumerable<Genre>> GetGenresAsync()
+        {
+            return await _context.Genres.ToListAsync();
+        }
         public async Task DeleteTvShow(int id)
         {
             var tvshowsId = await _context.Movies.FindAsync(id);
@@ -165,6 +168,19 @@ namespace mega_webAPI.Data.Repositories
                 .Include(m => m.TvShowCategories)
                 .ThenInclude(mc => mc.Category)
                 .FirstOrDefaultAsync(m => m.Id == tvshow.Id);
+        }
+        public async Task<string> GetTvShowVideos(int id)
+        {
+            var tvShow = await _context.Tvshows
+                .Where(t => t.Id == id)
+                .Select(t => t.VideoUrl)
+                .FirstOrDefaultAsync();
+
+            if (tvShow == null)
+            {
+                return null;
+            }
+            return tvShow;
         }
 
     }

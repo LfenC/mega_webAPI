@@ -6,6 +6,7 @@ using mega_webAPI.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using mega_webAPI.Data.Repositories;
 
 
 namespace mega_webAPI.Controllers
@@ -316,6 +317,50 @@ namespace mega_webAPI.Controllers
             {
                 return StatusCode(500, new ObjectResult(new { error = ex.Message }));
 
+            }
+        }
+        [HttpGet("tvshows/genres")]
+        public async Task<ActionResult<IEnumerable<TvShowGenreDto>>> GetTvShowGenres()
+        {
+            try
+            {
+                var genres = await _tvShowRepository.GetGenresAsync();
+                if (genres == null || !genres.Any())
+                {
+                    return NotFound("No se encontraron géneros");
+                }
+                var genreDtos = genres.Select(g => new GenreDto
+                //se cambio de new MovieGenreDto a GenreDto
+                {
+                    GenreId = g.GenreId,
+                    Name = g.Name,
+
+                }).ToList();
+
+                return Ok(genreDtos);
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+
+            }
+        }
+        [HttpGet("{id}/videos")]
+        public async Task<ActionResult<string>> GetTvShowVideos(int id)
+        {
+            try
+            {
+                var videos = await _tvShowRepository.GetTvShowVideos(id);
+                if (videos == null)
+                {
+                    return NotFound(new { message = $"No se encontraron videos para la serie con Id {id}" });
+                }
+                return Ok(videos);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
             }
         }
 

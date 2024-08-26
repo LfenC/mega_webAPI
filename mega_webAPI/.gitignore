@@ -1,3 +1,4 @@
 
 appsettings.json
 appsettings.development.json
+k8s/secret.yaml
