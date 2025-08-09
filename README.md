@@ -1,53 +1,64 @@
-# EntertainmentHub - Cuarto Sprint
-Proyecto hecho por Lizeth Consuelo Bañuelos Ruelas.
+# EntertainmentHub – Fourth Sprint
+Project made by Lizeth Consuelo Bañuelos Ruelas.
 
+# Description
+Entertainment Hub is an entertainment platform where you can watch movies, TV shows, upcoming movies, top-rated and popular movies. It also features a simulated login.
 
-# Descripción
-Entertainment Hub entretenimiento donde se pueden ver películas, programas de televisión, las próximas películas, las películas más valoradas y populares, también tiene un inicio de sesión simulado.
+# Objectives
+- Implement backend with .NET  
+- Develop the database  
 
-# Objetivos
-- Implementar backend con .Net
-- Desarrollar la base de datos 
-# Dependencias y bibliotecas
-.Net v8
+# Dependencies and Libraries
+- **.NET** v8
 
+# Project Screenshot
+![image](https://github.com/user-attachments/assets/8bfbde55-cdbb-4f1f-ad92-2cff96742783)
 
-# Captura de pantalla del proyecto
-![imagen](https://github.com/user-attachments/assets/8bfbde55-cdbb-4f1f-ad92-2cff96742783)
+# Instructions
+1. Get the repository URL: click the **Code** button and copy the repository URL.  
+2. Clone the repository: open the terminal and run  
+   ```
+   git clone <repository-url>
+   ```  
+3. Install the necessary dependencies and restore them with:  
+   ```
+   dotnet restore
+   ```  
+4. Build the project with:  
+   ```
+   dotnet build
+   ```  
+5. Run the project with:  
+   ```
+   dotnet run
+   ```
 
+# How It Was Made
+I started by researching **Express.js** since I had used it a little before. Later, when we switched to .NET, I set out to learn how to implement it. Realizing its similarity to **Spring Boot** helped me understand it better from my perspective.  
 
-# Instrucciones
-Obtener la url del repositorio: Hacer clic en el botón code y copiar la URL del repositorio.
-Clonar repositorio: abrir la terminal y ejecutar el comando git clone <urldelrepositorio>.
-Instalar las dependencias necesarias, restaurarlas con `dotnet restore`, luego compilar el proyecto
-con dotnet build y posteriormente ejecutarlo con dotnet run
+I then watched tutorials on creating CRUD operations in .NET to understand how to implement them and see practical examples. However, I realized I needed a deeper understanding to develop my project properly.  
 
-# Descripción de como se hizo
-Se comenzó con investigar sobre express.js ya que lo había utilizado un poco, después al darnos el cambio a .Net me di a la tarea de averiguar cómo se podría realizar y al darme cuenta de su parecido con SpringBoot comprendí un poco más desde mi punto de vista, después me dispuse a ver videos de manejor de CRUD en .Net para comprender y tratar de implementarlo y darme un ejemplo, sin embargo me di cuenta que se necesitaba algo más profundo para pdoer desarrollar mi proyecto. Una vez entendido un poco me dispuse a definir modelos, controllers, etc.
-# Reporte de Code Coverage y de testing
-##Code coverage
-![alt text](image-11.png)
+Once I grasped the basics, I proceeded to define models, controllers, and other backend components.
 
-![alt text](image-12.png)
+# Known Issues
+- Database connection: I’m not sure if it’s correct since I connected using Microsoft authentication instead of credentials.  
+- Missing controllers.
 
-# Problemas conocidos
-La base de datos, la conexión no se si es la correcta al hacerlo con Microsoft y no con credenciales.
-Faltan controladores
+# Retrospective
 
-# Retrospectiva
+## ✅ What went well?
+- Gained a basic understanding of .NET.  
+- Added a new functionality to my project allowing movies to be added to favorites in Angular.  
+- Implemented basic controllers such as **Movies** and functions for **Top Rated** and **Upcoming Movies** fetched from the database.
 
-## ¿Qué hice bien?
-Entender de manera básica .Net
-Agregué una nueva funcionalidad a mi proyecto en el cual se puede agregar a favoritos en Angular.
-Implementar controladores básicos como el de movies y funciones para toprated y upcoming movies desde la base de datos.
+## ⚠️ What didn’t go well?
+- Building the backend in .NET took more time than expected to understand how it should be done.  
+- Since my database didn’t allow connecting with a password and ID, I had to use Microsoft authentication, which I believe isn’t the right approach and should be clarified.  
+- I didn’t implement login with the database.
 
-## ¿Qué no salió bien?
-Tratar de hacer el backend en .Net lo que me llevó más tiempo para comprender como se debería de hacer.
-Debido a que mi base de datos no me permitió conectar con password e id, lo tuve que hacer con autenticacion de Microsoft lo cual considero no es correcto y debería preguntarlo.
-Me faltó implementar el login con base de datos.
+## 💡 What can I do differently?
+- Manage my time better when learning something new, as this time I focused too much on understanding rather than progressing and applying it.  
+- Learn .NET in greater depth.
 
-## ¿Qué puedo hacer diferente?
-Administrar mejor mi tiempo al querer aprender algo diferente, ya que esta vez me enfoqué en entender y no en avanzar y aplicarlo.
-Aprender más a fondo sobre .Net
-# Database diagram
-![imagen](https://github.com/user-attachments/assets/2ad4c12b-ad72-45d9-9f7e-4d66ed9dcbf8)
+# Database Diagram
+![image](https://github.com/user-attachments/assets/2ad4c12b-ad72-45d9-9f7e-4d66ed9dcbf8)
